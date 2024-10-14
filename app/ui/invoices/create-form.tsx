@@ -9,12 +9,13 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
-import { useActionState } from 'react';
+// import { useActionState } from 'react';
+import { useFormState } from 'react-dom';
 import { createInvoice, State } from '@/app/lib/actions';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState: State = {message: null, errors: {}};
-  const [state, formAction] = useActionState(createInvoice, initialState);
+  const [state, formAction] = useFormState(createInvoice, initialState);
   return (
     <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
